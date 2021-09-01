@@ -3,11 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		D6EA0B1426DE1B9C00C8B871 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA0B1326DE1B9C00C8B871 /* main.swift */; };
+		D6EA0B1C26DE1CCC00C8B871 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = D6EA0B1B26DE1CCC00C8B871 /* ArgumentParser */; };
+		D6EA0B1F26DE2C0D00C8B871 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = D6EA0B1E26DE2C0D00C8B871 /* Files */; };
+		D6EA0B2226DE326C00C8B871 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6EA0B2126DE326C00C8B871 /* Logging */; };
+		D6EA0B2426DE4DBB00C8B871 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA0B2326DE4DBB00C8B871 /* Map.swift */; };
+		D6EA0B2826DF215F00C8B871 /* TileIndexArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA0B2726DF215F00C8B871 /* TileIndexArgument.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,8 @@
 /* Begin PBXFileReference section */
 		D6EA0B1026DE1B9C00C8B871 /* rename */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rename; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EA0B1326DE1B9C00C8B871 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D6EA0B2326DE4DBB00C8B871 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		D6EA0B2726DF215F00C8B871 /* TileIndexArgument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileIndexArgument.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +39,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EA0B2226DE326C00C8B871 /* Logging in Frameworks */,
+				D6EA0B1F26DE2C0D00C8B871 /* Files in Frameworks */,
+				D6EA0B1C26DE1CCC00C8B871 /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +68,8 @@
 			isa = PBXGroup;
 			children = (
 				D6EA0B1326DE1B9C00C8B871 /* main.swift */,
+				D6EA0B2326DE4DBB00C8B871 /* Map.swift */,
+				D6EA0B2726DF215F00C8B871 /* TileIndexArgument.swift */,
 			);
 			path = rename;
 			sourceTree = "<group>";
@@ -78,6 +90,11 @@
 			dependencies = (
 			);
 			name = rename;
+			packageProductDependencies = (
+				D6EA0B1B26DE1CCC00C8B871 /* ArgumentParser */,
+				D6EA0B1E26DE2C0D00C8B871 /* Files */,
+				D6EA0B2126DE326C00C8B871 /* Logging */,
+			);
 			productName = rename;
 			productReference = D6EA0B1026DE1B9C00C8B871 /* rename */;
 			productType = "com.apple.product-type.tool";
@@ -105,6 +122,11 @@
 				Base,
 			);
 			mainGroup = D6EA0B0726DE1B9C00C8B871;
+			packageReferences = (
+				D6EA0B1A26DE1CCC00C8B871 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				D6EA0B1D26DE2C0D00C8B871 /* XCRemoteSwiftPackageReference "Files" */,
+				D6EA0B2026DE326C00C8B871 /* XCRemoteSwiftPackageReference "swift-log" */,
+			);
 			productRefGroup = D6EA0B1126DE1B9C00C8B871 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -119,7 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EA0B2426DE4DBB00C8B871 /* Map.swift in Sources */,
 				D6EA0B1426DE1B9C00C8B871 /* main.swift in Sources */,
+				D6EA0B2826DF215F00C8B871 /* TileIndexArgument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +309,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D6EA0B1A26DE1CCC00C8B871 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.4;
+			};
+		};
+		D6EA0B1D26DE2C0D00C8B871 /* XCRemoteSwiftPackageReference "Files" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/Files.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		D6EA0B2026DE326C00C8B871 /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D6EA0B1B26DE1CCC00C8B871 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6EA0B1A26DE1CCC00C8B871 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		D6EA0B1E26DE2C0D00C8B871 /* Files */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6EA0B1D26DE2C0D00C8B871 /* XCRemoteSwiftPackageReference "Files" */;
+			productName = Files;
+		};
+		D6EA0B2126DE326C00C8B871 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6EA0B2026DE326C00C8B871 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D6EA0B0826DE1B9C00C8B871 /* Project object */;
 }
