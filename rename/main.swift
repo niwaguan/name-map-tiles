@@ -10,32 +10,6 @@ import Logging
 import Files
 import ArgumentParser
 
-//struct Repeat: ParsableCommand {
-//    @Flag(help: "Include a counter with each repetition.")
-//    var includeCounter = false
-//
-//    @Option(name: .shortAndLong, help: "The number of times to repeat 'phrase'.")
-//    var count: Int?
-//
-//    @Argument(help: "The phrase to repeat.")
-//    var phrase: String
-//
-//    mutating func run() throws {
-//        let repeatCount = count ?? .max
-//
-//        for i in 1...repeatCount {
-//            if includeCounter {
-//                print("\(i): \(phrase)")
-//            } else {
-//                print(phrase)
-//            }
-//        }
-//    }
-//}
-
-//Repeat.main()
-// /Users/dockeruoo/Desktop/黎明觉醒地图/奥吉里岛
-
 struct Name: ParsableCommand {
     
     enum NameError: Error {
@@ -54,6 +28,9 @@ struct Name: ParsableCommand {
     @Option(name: .short, help: "The x-axis value（0...15）.")
     var y: Int = 0
     
+    @Option(name: .short, help: "The name prefix. eg prefix_z_x_y .")
+    var prefix: String = ""
+    
     @Option(name: .shortAndLong, help: "The tiles file destination folder name")
     var destination: String = ""
     
@@ -66,17 +43,18 @@ struct Name: ParsableCommand {
             throw NameError.invalidDestination
         }
         
-        print("processing path: \(source)")
+        print("start process at path: \(source)")
         let sourceFolder = try Files.Folder(path: source)
         guard let destinationFolder = try? sourceFolder.parent?.createSubfolder(named: destination) else {
             throw NameError.cannotCreateDestinationFolder
         }
         
-        print("目标文件夹：\(destinationFolder)")
         var count = 0
         try process(folder: sourceFolder, destination: destinationFolder, count: &count)
         
-        print("done! total:\(count)")
+        print("\n✅done!")
+        print("total: \(count)")
+        print("destination：\(destinationFolder.path)")
     }
     
     func process(folder: Folder, destination: Folder, count: inout Int) throws {
@@ -91,13 +69,26 @@ struct Name: ParsableCommand {
                 throw NameError.invalidTilesCount
             }
             
-            try tiles.enumerated().forEach { (index, element) in
-                let name = map.name(of: index, offsetX: x, y: y)
+            try tiles
+                .sorted(by: { l, r in
+                    guard let leftNumberString = l.nameExcludingExtension.split(separator: "_").last,
+                          let rightNumberString = r.nameExcludingExtension.split(separator: "_").last,
+                          let leftNumber = Int(leftNumberString),
+                          let rightNumber = Int(rightNumberString)
+                    else {
+                        return l.nameExcludingExtension < r.nameExcludingExtension
+                    }
+                    return leftNumber < rightNumber
+                })
+                .enumerated()
+                .forEach { (index, element) in
+                
+                let name = prefix + map.name(of: index, offsetX: x, y: y)
                 let file = try element.copy(to: destination)
                 try file.rename(to: name)
-                print("process \(element.path) -> \(file.path)")
+                print("- index: \(index)\t\(element.path) ->\t\(file.path)")
             }
-            print("info: scale:\(map.scale), total: \(map.tiles)")
+            print("* statistics: scale:\(map.scale), total: \(map.tiles)")
             count += tiles.count
         }
         
@@ -112,3 +103,4 @@ struct Name: ParsableCommand {
 
 Name.main()
 
+//Counter.main()

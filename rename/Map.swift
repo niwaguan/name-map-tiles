@@ -35,13 +35,13 @@ struct Map {
         let offsetSize = Int(truncating: NSDecimalNumber(decimal: pow(2, scale)))
         
         var line = tile / columns
-        line += offsetX * offsetSize
+        line += y * offsetSize
         
         var column = tile % columns
-        column += y * offsetSize
+        column += offsetX * offsetSize
         
         let scale = scale + scaleOffset
         
-        return "_\(scale)_\(line)_\(column)"
+        return "_\(scale)_\(column)_\(line)"
     }
 }
