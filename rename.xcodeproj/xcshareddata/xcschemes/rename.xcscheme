@@ -56,12 +56,16 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "--help"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "-i a.txt -o o.txt"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-s /Users/dockeruoo/Desktop/&#x539f;&#x795e;&#x589e;&#x52a0;&#x5730;&#x56fe;/map -x=4 -y=4 -d activity/yuanshen/inazuma -p inazuma --verbose"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
    </LaunchAction>
