@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6C5F1EB26E097820041D621 /* LoggingSwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = D6C5F1EA26E097820041D621 /* LoggingSwiftyBeaver */; };
+		D6C5F1ED26E0986F0041D621 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C5F1EC26E0986F0041D621 /* Logger.swift */; };
 		D6EA0B1426DE1B9C00C8B871 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA0B1326DE1B9C00C8B871 /* main.swift */; };
 		D6EA0B1C26DE1CCC00C8B871 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = D6EA0B1B26DE1CCC00C8B871 /* ArgumentParser */; };
 		D6EA0B1F26DE2C0D00C8B871 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = D6EA0B1E26DE2C0D00C8B871 /* Files */; };
 		D6EA0B2226DE326C00C8B871 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6EA0B2126DE326C00C8B871 /* Logging */; };
 		D6EA0B2426DE4DBB00C8B871 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA0B2326DE4DBB00C8B871 /* Map.swift */; };
-		D6EA0B2826DF215F00C8B871 /* TileIndexArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA0B2726DF215F00C8B871 /* TileIndexArgument.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,10 +29,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D6C5F1EC26E0986F0041D621 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		D6EA0B1026DE1B9C00C8B871 /* rename */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rename; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EA0B1326DE1B9C00C8B871 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D6EA0B2326DE4DBB00C8B871 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
-		D6EA0B2726DF215F00C8B871 /* TileIndexArgument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileIndexArgument.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6EA0B2226DE326C00C8B871 /* Logging in Frameworks */,
+				D6C5F1EB26E097820041D621 /* LoggingSwiftyBeaver in Frameworks */,
 				D6EA0B1F26DE2C0D00C8B871 /* Files in Frameworks */,
 				D6EA0B1C26DE1CCC00C8B871 /* ArgumentParser in Frameworks */,
 			);
@@ -68,8 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				D6EA0B1326DE1B9C00C8B871 /* main.swift */,
+				D6C5F1EC26E0986F0041D621 /* Logger.swift */,
 				D6EA0B2326DE4DBB00C8B871 /* Map.swift */,
-				D6EA0B2726DF215F00C8B871 /* TileIndexArgument.swift */,
 			);
 			path = rename;
 			sourceTree = "<group>";
@@ -94,6 +96,7 @@
 				D6EA0B1B26DE1CCC00C8B871 /* ArgumentParser */,
 				D6EA0B1E26DE2C0D00C8B871 /* Files */,
 				D6EA0B2126DE326C00C8B871 /* Logging */,
+				D6C5F1EA26E097820041D621 /* LoggingSwiftyBeaver */,
 			);
 			productName = rename;
 			productReference = D6EA0B1026DE1B9C00C8B871 /* rename */;
@@ -126,6 +129,7 @@
 				D6EA0B1A26DE1CCC00C8B871 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
 				D6EA0B1D26DE2C0D00C8B871 /* XCRemoteSwiftPackageReference "Files" */,
 				D6EA0B2026DE326C00C8B871 /* XCRemoteSwiftPackageReference "swift-log" */,
+				D6C5F1E926E097820041D621 /* XCRemoteSwiftPackageReference "swift-log-SwiftyBeaver" */,
 			);
 			productRefGroup = D6EA0B1126DE1B9C00C8B871 /* Products */;
 			projectDirPath = "";
@@ -141,9 +145,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6C5F1ED26E0986F0041D621 /* Logger.swift in Sources */,
 				D6EA0B2426DE4DBB00C8B871 /* Map.swift in Sources */,
 				D6EA0B1426DE1B9C00C8B871 /* main.swift in Sources */,
-				D6EA0B2826DF215F00C8B871 /* TileIndexArgument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +315,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D6C5F1E926E097820041D621 /* XCRemoteSwiftPackageReference "swift-log-SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ShivaHuang/swift-log-SwiftyBeaver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		D6EA0B1A26DE1CCC00C8B871 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
@@ -338,6 +350,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D6C5F1EA26E097820041D621 /* LoggingSwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6C5F1E926E097820041D621 /* XCRemoteSwiftPackageReference "swift-log-SwiftyBeaver" */;
+			productName = LoggingSwiftyBeaver;
+		};
 		D6EA0B1B26DE1CCC00C8B871 /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D6EA0B1A26DE1CCC00C8B871 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;

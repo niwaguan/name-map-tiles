@@ -27,6 +27,24 @@
           "revision": "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
           "version": "1.4.2"
         }
+      },
+      {
+        "package": "swift-log-SwiftyBeaver",
+        "repositoryURL": "https://github.com/ShivaHuang/swift-log-SwiftyBeaver.git",
+        "state": {
+          "branch": null,
+          "revision": "7b6f329f47530583546be82bb14060aba888cd43",
+          "version": "0.1.0"
+        }
+      },
+      {
+        "package": "SwiftyBeaver",
+        "repositoryURL": "https://github.com/SwiftyBeaver/SwiftyBeaver.git",
+        "state": {
+          "branch": null,
+          "revision": "2c039501d6eeb4d4cd4aec4a8d884ad28862e044",
+          "version": "1.9.5"
+        }
       }
     ]
   },

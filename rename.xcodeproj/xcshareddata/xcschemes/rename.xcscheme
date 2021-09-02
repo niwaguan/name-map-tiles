@@ -52,7 +52,15 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-s /Users/dockeruoo/Desktop/&#x9ece;&#x660e;&#x89c9;&#x9192;&#x5730;&#x56fe;/&#x5965;&#x5409;&#x91cc;&#x5c9b; -x=3 -y=4 -d ziped/images"
+            argument = "-i a.txt -o o.txt --verbose"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-i a.txt -o o.txt"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-s /Users/dockeruoo/Desktop/&#x539f;&#x795e;&#x589e;&#x52a0;&#x5730;&#x56fe;/map -x=4 -y=4 -d activity/yuanshen/inazuma -p inazuma --verbose"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

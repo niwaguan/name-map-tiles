@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Logging
 import Files
 import ArgumentParser
 
@@ -17,7 +16,7 @@ struct Name: ParsableCommand {
         case invalidDestination
         case cannotCreateDestinationFolder
         case invalidTilesCount
-    
+        case cannotCreateLogFile
     }
     
     @Option(name: .shortAndLong, help: "The tiles file path")
@@ -34,6 +33,9 @@ struct Name: ParsableCommand {
     @Option(name: .shortAndLong, help: "The tiles file destination folder name")
     var destination: String = ""
     
+    @Flag
+    var verbose = false
+    
     mutating func run() throws {
         guard source.count > 0 else {
             throw NameError.invalidPath
@@ -43,18 +45,30 @@ struct Name: ParsableCommand {
             throw NameError.invalidDestination
         }
         
-        print("start process at path: \(source)")
         let sourceFolder = try Files.Folder(path: source)
         guard let destinationFolder = try? sourceFolder.parent?.createSubfolder(named: destination) else {
             throw NameError.cannotCreateDestinationFolder
         }
         
+        /// 配置log
+        Logger.makeConsoleLoggerEnabled(verbose)
+        
+        /// 文件log路径
+        guard let logFile = try sourceFolder.parent?.createFile(named: "name-map-tile-log-\(Date().description).log") else {
+            throw NameError.cannotCreateLogFile
+        }
+        Logger.updateLoggerFilaPath(logFile.path)
+        
+        Logger.log("start process at path: \(source)")
+        
         var count = 0
         try process(folder: sourceFolder, destination: destinationFolder, count: &count)
         
-        print("\n✅done!")
-        print("total: \(count)")
-        print("destination：\(destinationFolder.path)")
+        Logger.log("✅done!", repeatInConsole: !verbose)
+        Logger.log("total: \(count)", repeatInConsole: !verbose)
+        Logger.log("destination：\(destinationFolder.path)", repeatInConsole: !verbose)
+        Logger.log("log file：\(logFile.path)", repeatInConsole: !verbose)
+        
     }
     
     func process(folder: Folder, destination: Folder, count: inout Int) throws {
@@ -86,9 +100,9 @@ struct Name: ParsableCommand {
                 let name = prefix + map.name(of: index, offsetX: x, y: y)
                 let file = try element.copy(to: destination)
                 try file.rename(to: name)
-                print("- index: \(index)\t\(element.path) ->\t\(file.path)")
+                Logger.log("- index: \(index)\t\(element.path) ->\t\(file.path)")
             }
-            print("* statistics: scale:\(map.scale), total: \(map.tiles)")
+            Logger.log("* statistics: scale:\(map.scale), total: \(map.tiles)")
             count += tiles.count
         }
         
@@ -102,5 +116,3 @@ struct Name: ParsableCommand {
 }
 
 Name.main()
-
-//Counter.main()
